@@ -89,10 +89,10 @@ cp .env.example .env
 Edit `backend/.env`:
 
 ```bash
-# Supabase Configuration
+# Supabase Configuration (Updated to new API key naming)
 SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+SUPABASE_API_KEY_PUBLIC=your-public-api-key
+SUPABASE_API_KEY_SECRET=your-secret-api-key
 
 # Twitch Extension Configuration
 TWITCH_EXTENSION_CLIENT_ID=your-extension-client-id
@@ -107,10 +107,13 @@ CLOUDFLARE_ACCOUNT_ID=your-account-id
 ```
 
 **Where to find values**:
-- `SUPABASE_URL` + `SUPABASE_ANON_KEY`: Supabase project settings → API
-- `SUPABASE_SERVICE_ROLE_KEY`: Supabase project settings → API → service_role (keep secret!)
+- `SUPABASE_URL`: Supabase Dashboard → Project Settings → API → URL
+- `SUPABASE_API_KEY_PUBLIC`: Supabase Dashboard → Project Settings → API → "anon public" key (browser-safe)
+- `SUPABASE_API_KEY_SECRET`: Supabase Dashboard → Project Settings → API → "service_role" key (server-only, keep secret!)
 - `TWITCH_EXTENSION_*`: Twitch Developer Console → Extensions → Your Extension
 - `CLOUDFLARE_ACCOUNT_ID`: Cloudflare Dashboard → Workers → Overview
+
+**Migration Note**: Supabase has transitioned to new API key naming. The old `SUPABASE_ANON_KEY` is now `SUPABASE_API_KEY_PUBLIC`, and `SUPABASE_SERVICE_ROLE_KEY` is now `SUPABASE_API_KEY_SECRET`.
 
 #### Frontend Extension (.env)
 
@@ -145,9 +148,9 @@ Edit `frontend-website/.env`:
 # API Configuration
 VITE_API_BASE_URL=http://localhost:8787/api/v1
 
-# Supabase (for website auth)
+# Supabase (for website auth) - Updated to new API key naming
 VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_API_KEY_PUBLIC=your-public-api-key
 
 # Environment
 VITE_NODE_ENV=development
@@ -478,7 +481,7 @@ export default cardsRouter;
 cat backend/.env | grep SUPABASE
 
 # Verify API keys in Supabase Dashboard → Settings → API
-# Ensure SUPABASE_URL and SUPABASE_ANON_KEY are correct
+# Ensure SUPABASE_URL and SUPABASE_API_KEY_PUBLIC/SECRET are correct
 ```
 
 #### Issue: "Twitch JWT validation failed"

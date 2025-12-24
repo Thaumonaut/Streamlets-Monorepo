@@ -1,0 +1,35 @@
+{
+  "name": "@streamlets/monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Streamlets - Twitch emote collection game monorepo",
+  "scripts": {
+    "dev": "concurrently -n backend,extension,website -c cyan,magenta,green \"pnpm dev:backend\" \"pnpm dev:extension\" \"pnpm dev:website\"",
+    "dev:backend": "pnpm --filter @streamlets/backend dev",
+    "dev:extension": "pnpm --filter @streamlets/frontend-extension dev",
+    "dev:website": "pnpm --filter @streamlets/frontend-website dev --port 5174",
+    "build": "pnpm --filter @streamlets/backend build && pnpm --filter @streamlets/frontend-extension build && pnpm --filter @streamlets/frontend-website build",
+    "build:backend": "pnpm --filter @streamlets/backend build",
+    "build:extension": "pnpm --filter @streamlets/frontend-extension build",
+    "build:website": "pnpm --filter @streamlets/frontend-website build",
+    "test": "pnpm --filter @streamlets/backend test && pnpm --filter @streamlets/frontend-extension test && pnpm --filter @streamlets/frontend-website test",
+    "test:backend": "pnpm --filter @streamlets/backend test",
+    "test:extension": "pnpm --filter @streamlets/frontend-extension test",
+    "test:website": "pnpm --filter @streamlets/frontend-website test",
+    "lint": "pnpm --filter @streamlets/backend lint && pnpm --filter @streamlets/frontend-extension lint && pnpm --filter @streamlets/frontend-website lint",
+    "lint:fix": "pnpm --filter @streamlets/backend lint:fix && pnpm --filter @streamlets/frontend-extension lint:fix && pnpm --filter @streamlets/frontend-website lint:fix",
+    "format": "pnpm --filter @streamlets/backend format && pnpm --filter @streamlets/frontend-extension format && pnpm --filter @streamlets/frontend-website format",
+    "format:check": "pnpm --filter @streamlets/backend format:check && pnpm --filter @streamlets/frontend-extension format:check && pnpm --filter @streamlets/frontend-website format:check",
+    "type-check": "pnpm --filter @streamlets/backend type-check && pnpm --filter @streamlets/frontend-extension type-check && pnpm --filter @streamlets/frontend-website type-check",
+    "clean": "pnpm --recursive exec rm -rf node_modules dist .turbo && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}

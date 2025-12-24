@@ -1,0 +1,18 @@
+{
+  "name": "@streamlets/db-migrations",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed:emotes": "tsx seed-emotes.ts",
+    "seed:rarity": "tsx seed-rarity.ts",
+    "seed:all": "pnpm seed:rarity && pnpm seed:emotes"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0"
+  }
+}

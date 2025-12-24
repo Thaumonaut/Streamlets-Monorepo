@@ -26,18 +26,18 @@ Based on plan.md structure:
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create monorepo structure with backend/, frontend-extension/, frontend-website/, shared/ directories
-- [ ] T002 Initialize backend project with Hono, Wrangler, and TypeScript in backend/package.json
-- [ ] T003 [P] Initialize frontend-extension project with React, Vite, and Twitch Extension SDK in frontend-extension/package.json
-- [ ] T004 [P] Initialize frontend-website project with React and Vite in frontend-website/package.json
-- [ ] T005 [P] Initialize shared types package with TypeScript in shared/package.json
-- [ ] T006 [P] Configure TypeScript strict mode in all tsconfig.json files per constitution
-- [ ] T007 [P] Configure ESLint and Prettier in backend/.eslintrc.json and backend/.prettierrc
-- [ ] T008 [P] Configure ESLint and Prettier in frontend-extension/.eslintrc.json
-- [ ] T009 [P] Configure ESLint and Prettier in frontend-website/.eslintrc.json
-- [ ] T010 Setup workspace package manager (pnpm) with pnpm-workspace.yaml
-- [ ] T011 Create backend/wrangler.toml for Cloudflare Workers configuration
-- [ ] T012 [P] Create environment templates: backend/.env.example, frontend-extension/.env.example, frontend-website/.env.example
+- [x] T001 Create monorepo structure with backend/, frontend-extension/, frontend-website/, shared/ directories
+- [x] T002 Initialize backend project with Hono, Wrangler, and TypeScript in backend/package.json
+- [x] T003 [P] Initialize frontend-extension project with React, Vite, and Twitch Extension SDK in frontend-extension/package.json
+- [x] T004 [P] Initialize frontend-website project with React and Vite in frontend-website/package.json
+- [x] T005 [P] Initialize shared types package with TypeScript in shared/package.json
+- [x] T006 [P] Configure TypeScript strict mode in all tsconfig.json files per constitution
+- [x] T007 [P] Configure ESLint and Prettier in backend/.eslintrc.json and backend/.prettierrc
+- [x] T008 [P] Configure ESLint and Prettier in frontend-extension/.eslintrc.json
+- [x] T009 [P] Configure ESLint and Prettier in frontend-website/.eslintrc.json
+- [x] T010 Setup workspace package manager (pnpm) with pnpm-workspace.yaml
+- [x] T011 Create backend/wrangler.toml for Cloudflare Workers configuration
+- [x] T012 [P] Create environment templates: backend/.env.example, frontend-extension/.env.example, frontend-website/.env.example
 
 ---
 
@@ -49,49 +49,49 @@ Based on plan.md structure:
 
 ### Database Foundation
 
-- [ ] T013 Create database migration file db-migrations/001_initial_schema.sql with all tables from data-model.md
-- [ ] T014 Create database seed script db-migrations/seed-emotes.ts to fetch Twitch global emotes
-- [ ] T015 Create database seed script db-migrations/seed-rarity.ts to populate rarity_distribution table
-- [ ] T016 Create PostgreSQL stored procedure draw_card() in db-migrations/002_draw_card_function.sql per data-model.md
+- [x] T013 Create database migration file db-migrations/001_initial_schema.sql with all tables from data-model.md
+- [x] T014 Create database seed script db-migrations/seed-emotes.ts to fetch Twitch global emotes
+- [x] T015 Create database seed script db-migrations/seed-rarity.ts to populate rarity_distribution table
+- [x] T016 Create PostgreSQL stored procedure draw_card() in db-migrations/002_draw_card_function.sql per data-model.md
 
 ### Shared Types and Constants
 
-- [ ] T017 [P] Create shared RarityTier type in shared/types.ts
-- [ ] T018 [P] Create shared Card interface in shared/types.ts
-- [ ] T019 [P] Create shared User interface in shared/types.ts
-- [ ] T020 [P] Create shared TicketBalance interface in shared/types.ts
-- [ ] T021 [P] Create shared CollectionEntry interface in shared/types.ts
-- [ ] T022 [P] Create shared DrawTransaction interface in shared/types.ts
-- [ ] T023 [P] Create rarity distribution constants in shared/constants.ts
-- [ ] T024 [P] Create ticket configuration constants in shared/constants.ts
-- [ ] T025 [P] Create Zod validation schemas in shared/validation.ts for API contracts
+- [x] T017 [P] Create shared RarityTier type in shared/types.ts
+- [x] T018 [P] Create shared Card interface in shared/types.ts
+- [x] T019 [P] Create shared User interface in shared/types.ts
+- [x] T020 [P] Create shared TicketBalance interface in shared/types.ts
+- [x] T021 [P] Create shared CollectionEntry interface in shared/types.ts
+- [x] T022 [P] Create shared DrawTransaction interface in shared/types.ts
+- [x] T023 [P] Create rarity distribution constants in shared/constants.ts
+- [x] T024 [P] Create ticket configuration constants in shared/constants.ts
+- [x] T025 [P] Create Zod validation schemas in shared/validation.ts for API contracts
 
 ### Backend Infrastructure
 
-- [ ] T026 Create Supabase client configuration in backend/src/db/client.ts
-- [ ] T027 Create Twitch JWT authentication middleware in backend/src/middleware/auth.ts
-- [ ] T028 [P] Create error handling middleware in backend/src/middleware/error.ts
-- [ ] T029 [P] Create CORS middleware in backend/src/middleware/cors.ts
-- [ ] T030 [P] Create logging middleware in backend/src/middleware/logger.ts
-- [ ] T031 Create Hono app initialization in backend/src/index.ts with middleware registration
-- [ ] T032 Create RNG service interface in backend/src/services/rng.interface.ts
-- [ ] T033 Create ProductionRNG implementation in backend/src/services/rng.production.ts using crypto.getRandomValues()
-- [ ] T034 [P] Create TestRNG implementation in backend/src/services/rng.test.ts with seeded PRNG
-- [ ] T035 Create ticket regeneration service in backend/src/services/ticket-regeneration.ts per research.md section 6
-- [ ] T036 Create health check endpoint in backend/src/api/routes/health.ts
+- [x] T026 Create Supabase client configuration in backend/src/db/client.ts
+- [x] T027 Create Twitch JWT authentication middleware in backend/src/middleware/auth.ts
+- [x] T028 [P] Create error handling middleware in backend/src/middleware/error.ts
+- [x] T029 [P] Create CORS middleware in backend/src/middleware/cors.ts
+- [x] T030 [P] Create logging middleware in backend/src/middleware/logger.ts
+- [x] T031 Create Hono app initialization in backend/src/index.ts with middleware registration
+- [x] T032 Create RNG service interface in backend/src/services/rng.interface.ts
+- [x] T033 Create ProductionRNG implementation in backend/src/services/rng.production.ts using crypto.getRandomValues()
+- [x] T034 [P] Create TestRNG implementation in backend/src/services/rng.test.ts with seeded PRNG
+- [x] T035 Create ticket regeneration service in backend/src/services/ticket-regeneration.ts per research.md section 6
+- [x] T036 Create health check endpoint in backend/src/api/routes/health.ts
 
 ### Frontend Extension Infrastructure
 
-- [ ] T037 Create Twitch Extension SDK integration in frontend-extension/src/App.tsx
-- [ ] T038 Create API client service in frontend-extension/src/services/api.ts with JWT integration
-- [ ] T039 [P] Create error handling utilities in frontend-extension/src/utils/errors.ts
-- [ ] T040 [P] Create date formatting utilities in frontend-extension/src/utils/format.ts
+- [x] T037 Create Twitch Extension SDK integration in frontend-extension/src/App.tsx
+- [x] T038 Create API client service in frontend-extension/src/services/api.ts with JWT integration
+- [x] T039 [P] Create error handling utilities in frontend-extension/src/utils/errors.ts
+- [x] T040 [P] Create date formatting utilities in frontend-extension/src/utils/format.ts
 
 ### Frontend Website Infrastructure
 
-- [ ] T041 Create Supabase Auth client in frontend-website/src/services/supabase.ts
-- [ ] T042 Create API client service in frontend-website/src/services/api.ts
-- [ ] T043 Create routing configuration in frontend-website/src/App.tsx
+- [x] T041 Create Supabase Auth client in frontend-website/src/services/supabase.ts
+- [x] T042 Create API client service in frontend-website/src/services/api.ts
+- [x] T043 Create routing configuration in frontend-website/src/App.tsx
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

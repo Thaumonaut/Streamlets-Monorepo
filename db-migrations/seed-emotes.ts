@@ -9,18 +9,18 @@ import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 
 // Load environment variables
-dotenv.config({ path: '../backend/.env' });
+dotenv.config({ path: '../.env' });
 
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseSecretKey = process.env.SUPABASE_API_KEY_SECRET;
 
-if (!supabaseUrl || !supabaseServiceKey) {
+if (!supabaseUrl || !supabaseSecretKey) {
   console.error('Missing Supabase environment variables');
-  console.error('Make sure SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are set in backend/.env');
+  console.error('Make sure SUPABASE_URL and SUPABASE_API_KEY_SECRET are set in backend/.env');
   process.exit(1);
 }
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const supabase = createClient(supabaseUrl, supabaseSecretKey);
 
 // Mock data for development (since we don't have Twitch API credentials)
 // In production, this would fetch from Twitch API

@@ -11,18 +11,21 @@ import { createClient } from '@supabase/supabase-js';
 declare global {
   interface Env {
     SUPABASE_URL: string;
-    SUPABASE_ANON_KEY: string;
-    SUPABASE_SERVICE_ROLE_KEY: string;
+    SUPABASE_API_KEY_PUBLIC: string;
+    SUPABASE_API_KEY_SECRET: string;
     NODE_ENV: 'development' | 'staging' | 'production';
   }
 }
 
 /**
- * Supabase client with service role privileges
+ * Supabase client with secret API key privileges
  * Use for operations that require bypassing RLS policies
+ *
+ * NOTE: Uses the Secret API key which has elevated privileges.
+ * This is equivalent to the old service_role key.
  */
 export function createServiceRoleClient(env: Env) {
-  return createClient(env.SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY, {
+  return createClient(env.SUPABASE_URL, env.SUPABASE_API_KEY_SECRET, {
     auth: {
       autoRefreshToken: false,
       persistSession: false,
@@ -36,11 +39,14 @@ export function createServiceRoleClient(env: Env) {
 }
 
 /**
- * Supabase client with anon key
+ * Supabase client with publishable API key
  * Use for operations that respect RLS policies
+ *
+ * NOTE: Uses the Publishable API key (browser-safe).
+ * This is equivalent to the old anon key.
  */
 export function createAnonClient(env: Env) {
-  return createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY, {
+  return createClient(env.SUPABASE_URL, env.SUPABASE_API_KEY_PUBLIC, {
     auth: {
       autoRefreshToken: false,
       persistSession: false,
@@ -58,7 +64,7 @@ export function createAnonClient(env: Env) {
  * Use for operations that need to pass through JWT claims for RLS
  */
 export function createAuthenticatedClient(env: Env, authorization: string) {
-  return createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY, {
+  return createClient(env.SUPABASE_URL, env.SUPABASE_API_KEY_PUBLIC, {
     auth: {
       autoRefreshToken: false,
       persistSession: false,

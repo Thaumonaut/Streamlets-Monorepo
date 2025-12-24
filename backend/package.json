@@ -15,9 +15,9 @@
     "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
-    "seed:emotes": "tsx db-migrations/seed-emotes.ts",
-    "seed:rarity": "tsx db-migrations/seed-rarity.ts",
-    "seed:test-user": "tsx db-migrations/seed-test-user.ts",
+    "seed:emotes": "tsx ../db-migrations/seed-emotes.ts",
+    "seed:rarity": "tsx ../db-migrations/seed-rarity.ts",
+    "seed:test-user": "tsx ../db-migrations/seed-test-user.ts",
     "seed:all": "pnpm seed:rarity && pnpm seed:emotes && pnpm seed:test-user",
     "test:generate-jwt": "tsx scripts/generate-test-jwt.ts",
     "benchmark": "tsx scripts/benchmark.ts"
