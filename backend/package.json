@@ -1,0 +1,45 @@
+{
+  "name": "@streamlets/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:integration": "vitest --config vitest.integration.config.ts",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "seed:emotes": "tsx db-migrations/seed-emotes.ts",
+    "seed:rarity": "tsx db-migrations/seed-rarity.ts",
+    "seed:test-user": "tsx db-migrations/seed-test-user.ts",
+    "seed:all": "pnpm seed:rarity && pnpm seed:emotes && pnpm seed:test-user",
+    "test:generate-jwt": "tsx scripts/generate-test-jwt.ts",
+    "benchmark": "tsx scripts/benchmark.ts"
+  },
+  "dependencies": {
+    "hono": "^4.0.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "zod": "^3.22.4",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.10.6",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0",
+    "miniflare": "^3.20231218.0",
+    "wrangler": "^3.22.0",
+    "tsx": "^4.7.0"
+  }
+}

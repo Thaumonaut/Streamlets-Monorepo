@@ -1,0 +1,43 @@
+name = "streamlets-backend"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# Development environment
+[env.development]
+name = "streamlets-backend-dev"
+
+# Staging environment
+[env.staging]
+name = "streamlets-backend-staging"
+
+# Production environment
+[env.production]
+name = "streamlets-backend-prod"
+
+# Variables (set via wrangler secret or .dev.vars)
+[vars]
+ENVIRONMENT = "development"
+
+# KV Namespaces (if needed for caching)
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# preview_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Durable Objects (if needed for state)
+# [[durable_objects.bindings]]
+# name = "COUNTER"
+# class_name = "Counter"
+
+# R2 Buckets (if needed for file storage)
+# [[r2_buckets]]
+# binding = "ASSETS"
+# bucket_name = "streamlets-assets"
+
+# Environment variables for local development
+# Create .dev.vars file with:
+# SUPABASE_URL="https://your-project.supabase.co"
+# SUPABASE_ANON_KEY="your-anon-key"
+# SUPABASE_SERVICE_ROLE_KEY="your-service-role-key"
+# TWITCH_EXTENSION_CLIENT_ID="your-client-id"
+# TWITCH_EXTENSION_SECRET="your-secret"
